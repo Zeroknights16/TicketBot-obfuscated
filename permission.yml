@@ -1,0 +1,53 @@
+####################################################################################################
+# +----------------------------------------------------------------------------------------------+ #
+# |                               __   ,   ,             __   ___ ,   ,                          | #
+# |                              |__\  |  |  |   |      |  \ |__  \  /                           | #
+# |                              | \    |    |__|       |__/ |___  \/                            | #
+# |                                                                                              | #
+# |  Product:     Ticket Bot v1                                                                  | #
+# |  Version:     1.0.0-STABLE                                                                   | #
+# |  Config:      Permission                                                                     | #
+# |                                                                                              | #
+# |                                                                                              | #
+# |  New options are added to this file automatically.                                           | #
+# +----------------------------------------------------------------------------------------------+ #
+####################################################################################################
+
+enabled: true # If set to false the bot uses discord's built in permission system (Boolean) -> https://support.discord.com/hc/en-us/articles/4644915651095-Command-Permissions
+roles: # Add as many roles you want (Object)
+  management: "757349210872873191"
+  support: "621333675614928897"
+  member: "886721414487494717"
+
+commands: # User must inherits the configured role or one above (position of role) (Object)
+  appeal: management
+  application: management
+  av: member
+  botinfo: member
+  help: member
+  info: member
+  lockdown: management
+  ping: member
+  restart: management
+  server: member
+  setup: management
+  tadd: support
+  tblacklist: support
+  tclose: support
+  tleaderboard: member
+  tmove: support
+  tpanel: management
+  tremove: support
+  trename: support
+  treset: management
+  tunblacklist: support
+  updatedatabase: management
+  uptime: member
+
+interactions: # User must inherits the configured role or one above (position of role) (Object)
+  ticket_open: member
+  ticket_close: support
+  ticket_lower: support
+  ticket_elevate: support
+
+error: "You __do not__ have the permission to execute this **%type%**" # Error message - Placeholders: %type%

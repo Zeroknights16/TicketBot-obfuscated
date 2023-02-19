@@ -1,0 +1,63 @@
+####################################################################################################
+# +----------------------------------------------------------------------------------------------+ #
+# |                               __   ,   ,             __   ___ ,   ,                          | #
+# |                              |__\  |  |  |   |      |  \ |__  \  /                           | #
+# |                              | \    |    |__|       |__/ |___  \/                            | #
+# |                                                                                              | #
+# |  Product:     Ticket Bot v1                                                                  | #
+# |  Version:     1.0.0-STABLE                                                                   | #
+# |  Config:      General                                                                        | #
+# |                                                                                              | #
+# |  DISCORD:     https://discord.gg/taYjZsbSp9                                                  | #
+# |  BUG REPORTS: https://discord.gg/taYjZsbSp9                                                  | #
+# |  SETUP:                                                                                      | #
+# |                                                                                              | #
+# |  New options are added to this file automatically.                                           | #
+# +----------------------------------------------------------------------------------------------+ #
+####################################################################################################
+
+enabled: false # If set to false the ticket bot won't get loaded on startup (Boolean)
+version: "1.0.0" # DO NOT EDIT (String)
+guild_id: "804352424777220186" # Discord Server ID (String)
+server: # Server Information (Object)
+  name: "Ryujin"
+  store: "test.buycraft.net"
+  ip: "play.ryujin.co"
+
+blacklisted_channels: # Application commands cannot be executed in any of the channels below, also manageable by discord's built in permission system (Array)
+  - "947577986939514881"
+blacklisted_channel_error: "You __cannot__ execute commands in this **channel**" # Error message
+
+embed_colors: # You can add as many colors you want, to use this value in any embed configuration just put in the name, for Example: "color: server_theme" (All color codes can be found here: https://html-color.codes/) (Object)
+  server_theme: "#2c2f33"
+  purple: "#a046fa"
+  blue: "#46a0fa"
+  cyan: "#46faf3"
+  green: "#5bfa46"
+  yellow: "#fbe628"
+  orange: "#fb9b28"
+  red: "#e90000"
+
+embed_footer: # You can add as many footers you want, to use this value in any embed configuration just put in the name, for Example: "footer: default" (Object)
+  default:
+    timestamp: true
+    text: "%server_name% Discord Bot" # Placeholder(s): %server_name%
+
+error:
+  send_log_to_development: true # Whether we will automatically get notified with all required information about the error, however log files may be required to fix issues (String)
+  log_errors_in_discord_channel: true # Log Errors in specific channel (Boolean)
+  log_channel: "922975921491820576" # Channel ID (String)
+  error_embed: # Error Embed - This embed will be sent to the user who got the error (Object)
+    title: "``⛔`` Error (%task_name%)" # Placeholder(s): %task_name%
+    description: "%user%, an error occured while executing task %task_name%\n\n> **Error:** ``%error%``\n> **Triggered by:** ``%type%``\n> **Date:** %time%\n\n_If this error persists please message a developer_"
+    color: red
+    footer: default
+  error_log_embed: # Error **LOG** Embed - This embed will be sent to log channel
+    title: "``❌`` Error at %file_name%" # Placeholder(s): %file_name%
+    description: "An error occured while executing task __%task_name%__\n\n> **Path:** ``%path%``\n> **Error:** ``%error_name%``\n> **Details:** ``%error_description%``\n> **Message:** ``%message_content%``\n\n_Errors are getting automatically reported by our system (if set to true)_" # Placeholder(s): %task_name%, %path%, %error_name%, %error_description%, %message_content%
+    color: red
+    footer: default
+
+warning: # Embed builder for warnings, will be used for permission errors, syntax errors, ...
+  description: "``❌`` %warning%" # Placeholder(s): %warning%
+  color: red

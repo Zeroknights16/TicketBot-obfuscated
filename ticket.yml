@@ -1,0 +1,192 @@
+####################################################################################################
+# +----------------------------------------------------------------------------------------------+ #
+# |                               __   ,   ,             __   ___ ,   ,                          | #
+# |                              |__\  |  |  |   |      |  \ |__  \  /                           | #
+# |                              | \    |    |__|       |__/ |___  \/                            | #
+# |                                                                                              | #
+# |  Product:     Ticket Bot v1                                                                  | #
+# |  Version:     1.0.0-STABLE                                                                   | #
+# |  Config:      Tickets                                                                        | #
+# |                                                                                              | #
+# |                                                                                              | #
+# |  New options are added to this file automatically.                                           | #
+# +----------------------------------------------------------------------------------------------+ #
+####################################################################################################
+
+enabled: true # Whether ticket module should be enabled (Boolean)
+save_ticket_transcript_on_disk: true # Whether ticket transcripts should be saved on disk - C:%default%/Ticket Bot/data/ticket_transcripts - (Boolean)
+update_permissions_on_move: true # Whether permissions should be synced once moved (/move) (Boolean)
+ticket_channel_name: "ticket-%random%" # Ticket Channel Name, Available Placeholder: %random%, %creator%, %created_total% (String)
+ticket_transcript_message_limit: 200 # I do not suggest to increase this value (Integer)
+send_transcript_to_ticket_creator: true # Whether the ticket creator should get the transcript of his ticket (Boolean)
+ticket_log_channel: "804354132227260446" # Channel ID - Ticket logs (String)
+
+
+role_advantage: # This module can be used to reward people for boosting your discord. E.g. by boosting your discord you get faster support cause all helpers are getting pinged once a booster creates a ticket!
+  enabled: true # Whether this module is enabled (Boolean)
+  roles: # Ticket creator must inherit atleast one of the following roles to get the advantages - e.g. Booster Role (Array)
+    - "804354037662220289"
+  ticket_cooldown_override: "10m" # New Ticket cooldown for ticket creator that inherits one of the roles above - Set to null to disable - (Boolean)
+  mention_roles: # New Ticket mentions -||- - Set to null to disable - (Array)
+    - "884573835205148692"
+    - "804354028419022888"
+
+
+ticket_creation_message:
+  enabled: true # Whether ticket creation message should be sent (Boolean)
+  delete_after_seconds: 8 # After how many seconds should the message get deleted (Integer)
+  message_embed: # Embed Builder (Object)
+    color: green
+    description: "``✅`` %creator%, **successfully** created __%ticket_category%__ Ticket %ticket_channel%." # Placeholders: %ticket_creator%, %ticket_category%, %ticket_channel%
+
+
+ticket_categories:
+  - 0:
+    name: "Factions Support" # Ticket Category Name (String)
+    description: "Select to create a Factions related Ticket." # Ticket Category description (String)
+    emoji: "<:minecraftTnT:895757364651778108>" # Custom or default Emoji - https://emojidb.org/discord-copy-and-paste-emojis - https://support.discord.com/hc/en-us/community/posts/360038896012-Can-Get-Emoji-ID-When-You-re-On-Chrome#:~:text=You%20can%20get%20the%20Emoji%20ID%20by%20writing,then%20press%20enter%20and%20u%20have%20the%20ID. (String) 
+    application: false # If set to true the custom application system will be built into this ticket (Boolean)
+    appeal: false # If set to true the custom appeal system will be built into this ticket (Boolean)
+    category_id: "833732233021751306" # Category ID (String)
+    default_private_stage: 0 # Default Private Stage (Integer)
+    permissions: # Role/User IDs - Permission to see ticket (Array)
+      - "804354029076348959"
+    deny_permissions: null # Role/User IDs - Remove permission to see ticket - Usefull if e.g. helpers and mods can view tickets because they both own "staff" role, by adding helper role ID here they won't have access anymore! - Use null to disable (Array)
+    mention_roles: null # Role/User IDs - Mention following roles/users whenever this ticket type is getting created - Use null to disable (Array)
+    creation_embed: default # Check below to modify creation embeds (String)
+  - 1:
+    name: "Buycraft Support"
+    description: "Select to create a Buycraft related Ticket."
+    emoji: "💵"
+    application: false
+    appeal: false
+    category_id: "833732331889885214"
+    default_private_stage: 0
+    permissions:
+      - "804354029076348959"
+    deny_permissions: null
+    mention_roles: null
+    creation_embed: default
+  - 2:
+    name: "Appeal"
+    description: "Select to create an Appeal."
+    emoji: "<:minecraftGrid:871388416003158076>"
+    application: false
+    appeal: true
+    category_id: "833732435186548786"
+    default_private_stage: 0
+    permissions:
+      - "804354029076348959"
+    deny_permissions: null
+    mention_roles: null
+    creation_embed: default
+  - 3:
+    name: "Application"
+    description: "Select to create an Application."
+    emoji: "<:minecraftBook:871389381456457728>"
+    application: true
+    appeal: false
+    category_id: "833732469730574377"
+    default_private_stage: 0
+    permissions:
+      - "804354029076348959"
+    deny_permissions: null
+    mention_roles: null
+    creation_embed: default
+
+
+private_stages: # Lowest stage to highest stage - Role IDs - First stage inherits the number 0, second stage number 1, ... (important for ticket categories configuration)
+  - "804354029076348959"
+  - "804354022612926515"
+  - "804354019455139900"
+  - "804354017580810260"
+
+
+creation_embeds: # You can add as many embeds you want, to use this value in any ticket category configuration just put in the name, for Example: "creation_embed: default" (Object)
+  default:
+    title: "Ticket Creation"
+    description: "Hey %creator%,\nThank you for creating %ticket_channel%, we will get back to you as soon as possible.\n\nWhilst you are waiting for a response please explain the reason why you created this ticket by following this format:\n\n``IGN:``\n``Realm:``\n``Reason:``\n\u200B" # Placeholders: %creator%, %ticket_channel%
+    color: server_theme
+    footer: default
+
+
+buttons:
+  ticket_close: # Close button - ID: "ticket_close" (required for cooldown & confirm configuration) (Object) 
+    name: "Close"
+    emoji: "📝" # Custom Emojis are supported - Here's a guide how to get the id: https://docs.parent.gg/how-to-obtain-emoji-ids/#:~:text=Like%20for%20in-use%20of%20the%20ticket%20creation%20message%2C,name%20along%20with%20the%20ID%20such%20as%20%3Ca%3ADog_Spin%3A801604978040897568%3E
+  ticket_lower: # Lower Button - ID: "ticket_lower" (required for cooldown & confirm configuration) (Object) 
+    name: "Lower"
+    emoji: "⬇️" 
+  ticket_elevate: # Elevate Button - ID: "ticket_elevate" (required for cooldown & confirm configuration) (Object) 
+    name: "Elevate"
+    emoji: "⬆️"
+
+
+
+########################################################
+#                                                      #
+#   Lang. Configuration (not required to configure)    #
+#                                                      #
+########################################################
+
+ticketpanel:
+  ticket_category_format: "%ticket_category_emoji% **- %ticket_category_name%**\n" # Placeholders: %ticket_category_emoji% - %ticket_category_name% (String)
+  embed: # Embed Builder (Object)
+    title: "Ticket Creation"
+    description: "Please select the option that corresponds with your ticket.\n\n%ticket_categories%" # Placeholder: %ticket_categories% -> Format: ticket_category_format
+    color: server_theme
+    footer: default
+
+
+
+tclose_embed: # Embed Builder (Object)
+  title: "Ticket Closure"
+  description: "> **Ticket Name:** ``%channel_name%``\n> **Ticket Creator:** %creator%\n> **Category:** ``%category%``\n> **Accessable by:** %permission%\n> **Closed by:** %user%\n> **Reason:** ``%reason%``\n\nThe ticket was open for ``%days%``d ``%hours%``h ``%minutes%``m ``%seconds%``s!" # Placeholders: %channel_name%, %creator%, %category%, %permsision%, %user%, %reason%, %days%, %hours%, %minutes%, %seconds%
+  color: green
+  footer: default
+
+tleaderboard:
+  closed_format: "``#%place%`` %user_name% » Tickets closed: ``%ticket_closed%``\n" # Placeholders: %place%, %user_name%, %ticket_closed% (String)
+  opened_format: "``#%place%`` %user_name% » Tickets opened: ``%ticket_opened%``\n" # Placeholders: %place%, %user_name%, %ticket_opened% (String)
+  embed: # Embed Builder (Object)
+    title: "``🔖`` Ticket Leaderboard"
+    description: "%format%" # Placeholder: %format% - see above 
+    color: server_theme
+    footer: default
+
+tmove_embed: # Embed Builder (Object)
+  title: "%guild_name% Tickets" # Placeholder: %guild_name%
+  description: "The ticket %channel% has been __successfully__ moved to category **%category%**.\n\n> **Ticket**: ``%channel_name%``\n> **Creator**: %creator%\n> **Staff**: ``%author%``\n\n**Permissions** have been __updated__ to the following: %permission%" # Placeholders: %channel%, %category%, %channel_name%, %creator%, %author%, %permission%
+  color: green
+  footer: default
+
+
+
+layout_embed: # Embed Builder (Object)
+  description: "``✅`` %success%" # Placeholder: %success% - "success" messages can get configured below
+  color: green
+  
+success:
+  add: "%target% has been successfully __added__ to this **ticket**" # Placeholder: %target% (String)
+  remove: "%target% has been successfully __removed__ from this **ticket**" # Placeholder: %target% (String)
+  blacklist: "%target% has been successfully __blacklisted__ from the **ticket system**" # Placeholder: %target% (String)
+  unblacklist: "%target% has been successfully __unblacklisted__ from the **ticket system**" # Placeholder: %target% (String)
+  rename: "%channel% has been successfully __renamed__ to **%name%**" # Placeholders: %channel%, %name% (String)
+  reset: "Ticket Stats (``%type%``) has been __successfully__ **reset**" # Placeholders: %type% (String)
+  lower: "This ticket's **permission** have been __successfully__ updated to %role%" # Placeholders: %role% (String)
+  elevate: "This ticket's **permission** have been __successfully__ updated to %role%" # Placeholders: %role% (String)
+
+
+errors:
+  reached_maximum_amount: "%user%, you can only have up to ``1`` ticket open **per category** at the __same time__" # Placeholder: %user% (String)
+  blacklisted: "%user%, you are __unable__ to use the ticket system due to your **blacklist**." # Placeholder: %user% (String)
+  already_blacklisted: "%user%, %target% has __already__ been **blacklisted**" # Placeholders: %user%, %target% (String)
+  not_blacklisted: "%user%, %target% has __not__ been **blacklisted** yet" # Placeholders: %user%, %target% (String)
+  cant_use_command_outside_of_tickets: "%user%, you **cannot** use this command __outside__ of tickets" # Placeholder: %user% (String)
+  cant_use_command_inside_application: "%user%, you **cannot** use this command __inside__ of applications. Use ``/application`` instead" # Placeholder: %user% (String)
+  cant_use_command_inside_appeal: "%user%, you **cannot** use this command __inside__ of appeals. Use ``/appeal`` instead" # Placeholder: %user% (String)
+  move_invalid_channel: "%user%, please __provide__ a ``GUILD_CATEGORY`` channel" # Placeholder: %user% (String)
+  move_invalid_channel_current_one: "%user%, please provide __another__ ``GUILD_CATEGORY`` channel" # Placeholder: %user% (String)
+  move_invalid_category: "%user%, selected **category** is __not__ used by the ticket system" # Placeholder: %user% (String)
+  ticket_cannot_be_lowered: "%user%, this ticket cannot be lowered. %role% has already access to it." # Placeholders: %user%, %role% (String)
+  ticket_cannot_be_elevated: "%user%, this ticket cannot be raised. %role% only has access to it." # Placeholders: %user%, %role% (String)

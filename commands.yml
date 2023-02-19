@@ -1,0 +1,39 @@
+####################################################################################################
+# +----------------------------------------------------------------------------------------------+ #
+# |                               __   ,   ,             __   ___ ,   ,                          | #
+# |                              |__\  |  |  |   |      |  \ |__  \  /                           | #
+# |                              | \    |    |__|       |__/ |___  \/                            | #
+# |                                                                                              | #
+# |  Product:     Ticket Bot v1                                                                  | #
+# |  Version:     1.0.0-STABLE                                                                   | #
+# |  Config:      Commands                                                                       | #
+# |                                                                                              | #
+# |                                                                                              | #
+# |  New options are added to this file automatically.                                           | #
+# +----------------------------------------------------------------------------------------------+ #
+####################################################################################################
+
+# Whether command should be enabled (Boolean)
+appeal: true
+application: true
+av: true
+botinfo: true
+help: true
+info: true
+lockdown: true
+ping: true
+restart: true
+server: true
+setup: true
+tadd: true
+tblacklist: true
+tclose: true
+tleaderboard: true
+tmove: true
+tpanel: true
+tremove: true
+trename: true
+treset: true
+tunblacklist: true
+updatedatabase: true
+uptime: true

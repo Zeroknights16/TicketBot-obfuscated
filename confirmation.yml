@@ -1,0 +1,45 @@
+####################################################################################################
+# +----------------------------------------------------------------------------------------------+ #
+# |                               __   ,   ,             __   ___ ,   ,                          | #
+# |                              |__\  |  |  |   |      |  \ |__  \  /                           | #
+# |                              | \    |    |__|       |__/ |___  \/                            | #
+# |                                                                                              | #
+# |  Product:     Ticket Bot v1                                                                  | #
+# |  Version:     1.0.0-STABLE                                                                   | #
+# |  Config:      Confirmation Menu                                                              | #
+# |                                                                                              | #
+# |                                                                                              | #
+# |  New options are added to this file automatically.                                           | #
+# +----------------------------------------------------------------------------------------------+ #
+####################################################################################################
+
+enabled: true # If set to false certain commands and buttons will instantly execute without confirmation (Boolean)
+timeout_in_seconds: 30 # Time before the confirmation process will be automatically canceled - I do not suggest to **increase** this value (Integer)
+
+commands_require_confirmation: # Commands that require confirmation (Array)
+  - "treset"
+  - "restart"
+  - "updatedatabase"
+
+interaction_require_confirmation: # Buttons, Menus, Models that that require confirmation - you can find a list of all names in permission.yml (Array)
+ - "ticket_close"
+
+confirmation_embed: # Embed Builder (Object)
+  description: "%user%, are you sure you want to continue?" # Placeholder(s): %user%
+  color: server_theme
+
+confirmation_buttons:
+  proceed: # Procceed button (Object)
+    name: "Proceed"
+    emoji: "✔" # Custom Emojis are supported - Here's a guide how to get the id: https://docs.parent.gg/how-to-obtain-emoji-ids/#:~:text=Like%20for%20in-use%20of%20the%20ticket%20creation%20message%2C,name%20along%20with%20the%20ID%20such%20as%20%3Ca%3ADog_Spin%3A801604978040897568%3E
+  cancel: # Cancel Button (Object)
+    name: "Cancel"
+    emoji: "❌" # Custom Emojis are supported - Here's a guide how to get the id: https://docs.parent.gg/how-to-obtain-emoji-ids/#:~:text=Like%20for%20in-use%20of%20the%20ticket%20creation%20message%2C,name%20along%20with%20the%20ID%20such%20as%20%3Ca%3ADog_Spin%3A801604978040897568%3E
+
+cancel_embed: # Embed Builder (Object)
+  description: "``✅`` %user%, you have successfully __canceled__ the **proccess**" # Placeholder(s): %user%
+  color: green
+
+timeout_embed: # embed Builder (Object)
+  description: "``❌`` %user%, the __confirmation__ menu **timed out**"
+  color: red

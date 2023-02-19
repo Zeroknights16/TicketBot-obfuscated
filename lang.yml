@@ -1,0 +1,49 @@
+####################################################################################################
+# +----------------------------------------------------------------------------------------------+ #
+# |                               __   ,   ,             __   ___ ,   ,                          | #
+# |                              |__\  |  |  |   |      |  \ |__  \  /                           | #
+# |                              | \    |    |__|       |__/ |___  \/                            | #
+# |                                                                                              | #
+# |  Product:     Ticket Bot v1                                                                  | #
+# |  Version:     1.0.0-STABLE                                                                   | #
+# |  Config:      Lang                                                                           | #
+# |                                                                                              | #
+# |                                                                                              | #
+# |  New options are added to this file automatically.                                           | #
+# +----------------------------------------------------------------------------------------------+ #
+####################################################################################################
+
+############################################################################################################################################################################
+##                                                                                                                                                                        ##
+## (!) NOTE: Not all messages can be configured in this file! Certain messages that belong to a specific feature can be configured in the respective configuration file   ##
+## (!) NOTE: Not all messages can be configured in this file! Certain messages that belong to a specific feature can be configured in the respective configuration file   ##
+##                                                                                                                                                                        ##
+############################################################################################################################################################################
+
+commands:
+  uptime: # Embed Builder (Object)
+    description: "``🕰️`` **%guild_name% Discord Bot Uptime**: ``%days%``d ``%hours%``h ``%minutes%``m ``%seconds%``s" # Placeholder: %guild_name%, %days%, %hours%, %minutes%, %seconds%
+    color: server_theme
+
+  server: # Embed Builder (Object)
+    title: "%guild_name%" # Placeholder: %guild_name%
+    description: "**__Users__**\n> ``👤`` **Humans:** ``%members%``\n> ``🤖`` **Bots:** ``%bots%``\n> ``🟢`` **Online:** ``%online%``\n\n**__Channels/Roles__**\n> ``💬`` **Text:** ``%text_channels%``\n> ``🔊`` **Voice:** ``%voice_channels%``\n> ``📂`` **Categories:** ``%categories%``\n> ``⚙`` **Roles:** ``%roles%``\n\n**__Data__**\n> ``🎫`` **Tickets Created:** ``%tickets%``\n> ``🔒`` **Verification:** ``%verification%``\n> ``🚀`` **Nitro Boosts:** ``%boosts%``\n\n> ``👑`` **Owner:** ``%owner%``\n> ``🏴`` **Region:** ``%region%``\n> ``🗓️`` **Created:** ``%created%``" # Placeholders: %members%, %bots%, %online%, %text_channels%, %voice_channels%, %categories%, %roles%, %tickets%, %verification%, %boosts%, %owner%, %region%, %created%
+    color: server_theme
+    footer: default
+
+  info: # Embed Builder (Object)
+    title: "%user_tag%'s Profile" # Placeholder: %user_tag%
+    description: "**__General__**\n> **ID:** ``%user_id%``\n> **Profile:** %user%\n> **Nickname:** ``%user_nickname%``\n\n**__Status__**\n> **Bot:** ``%bot%``\n> **Status:** ``%presence%``\n> **Game:** ``%presence_game%``\n\n**__Guild__**\n> **Registered:** ``%registered%``\n> **Joined:** ``%joined%``\n> **Tickets opened:** ``%tickets_opened%``\n> **Tickets closed:** ``%tickets_closed%``\n> **Roles:** %roles%" # Placeholders: %user_id%, %user%, %user_nickname%, %bot%, %presence%, %presence_game%, %registered%, %joined%, %tickets_opened%, %tickets_closed%, %roles%
+    color: server_theme
+    footer: default
+
+  ping: # Embed Builder (Object)
+    description: "``✅`` **Bot Latency:** ``%ping%``ms"
+    color: server_theme
+
+  lockdown: # Embed Builder (Object)
+    description: "``✅`` __Lockdown__ mode has been successfully **%type%**" # Placeholder: %type%
+    color: server_theme
+
+errors:
+  lockdown_already_enabled: "%user%, __lockdown__ mode has already been **%type%**" # Placeholder: %user%, %type% (String)

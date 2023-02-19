@@ -1,0 +1,97 @@
+####################################################################################################
+# +----------------------------------------------------------------------------------------------+ #
+# |                               __   ,   ,             __   ___ ,   ,                          | #
+# |                              |__\  |  |  |   |      |  \ |__  \  /                           | #
+# |                              | \    |    |__|       |__/ |___  \/                            | #
+# |                                                                                              | #
+# |  Product:     Ticket Bot v1                                                                  | #
+# |  Version:     1.0.0-STABLE                                                                   | #
+# |  Config:      Appeal                                                                         | #
+# |                                                                                              | #
+# |                                                                                              | #
+# |  New options are added to this file automatically.                                           | #
+# +----------------------------------------------------------------------------------------------+ #
+####################################################################################################
+
+enabled: true # Whether appeal system should be enabled
+deny_appellant_to_write: true # Whether applicants should not be able to write in their ticket until they finished the application process (Boolean)
+appeal_log_channel: "1006590092711841862" # Channel ID - Appeal logs (String)
+
+questions:
+  - 0:
+    question: "What is your In Game Name?"
+    type: "text" # more options will be added soon
+    style: "SHORT" # "SHORT" or "PARAGRAPH"
+    max: 20
+    min: 2
+    placeholder: "Enter a value..."
+    required: true
+  - 1:
+    question: "What was your IGN when you were punished?"
+    type: "text" # more options will be added soon
+    style: "SHORT" # "SHORT" or "PARAGRAPH"
+    max: 20
+    min: 1
+    placeholder: "Enter a value..."
+    required: true
+  - 2:
+    question: "What type of Punishment are you appealing?"
+    type: "text" # more options will be added soon
+    style: "SHORT" # "SHORT" or "PARAGRAPH"
+    max: 20
+    min: 1
+    placeholder: "Ban, Mute, Blacklist"
+    required: true
+  - 3:
+    question: "Which Staff Member handled the Punishment?"
+    type: "text" # more options will be added soon
+    style: "SHORT" # "SHORT" or "PARAGRAPH"
+    max: 20
+    min: 2
+    placeholder: "Enter a value..."
+    required: true
+  - 4:
+    question: "Why are you appealing this punishment?"
+    type: "text" # more options will be added soon
+    style: "SHORT" # "SHORT" or "PARAGRAPH"
+    max: 1700
+    min: 2
+    placeholder: "Enter a value..."
+    required: true
+
+buttons:
+  appeal_submit: # Close button - ID: "app_apply" (required for cooldown & confirm configuration) (Object) 
+    name: "Submit"
+    emoji: "👮" # Custom Emojis are supported - Here's a guide how to get the id: https://docs.parent.gg/how-to-obtain-emoji-ids/#:~:text=Like%20for%20in-use%20of%20the%20ticket%20creation%20message%2C,name%20along%20with%20the%20ID%20such%20as%20%3Ca%3ADog_Spin%3A801604978040897568%3E
+  appeal_continue: # Close button - ID: "app_continue" (required for cooldown & confirm configuration) (Object) 
+    name: "Continue"
+    emoji: "✔️" # Custom Emojis are supported - Here's a guide how to get the id: https://docs.parent.gg/how-to-obtain-emoji-ids/#:~:text=Like%20for%20in-use%20of%20the%20ticket%20creation%20message%2C,name%20along%20with%20the%20ID%20such%20as%20%3Ca%3ADog_Spin%3A801604978040897568%3E
+
+
+
+########################################################
+#                                                      #
+#   Lang. Configuration (not required to configure)    #
+#                                                      #
+########################################################
+
+appeal:
+  accept: # Embed Builder (Object)
+    title: "Appeal Closure"
+    color: green
+    description: "%creator%**'s appeal has been __accepted__!**\n\n> **Ticket Name:** ``%channel_name%``\n> **Reviewed by:** %author%\n> **Reason:** ``%reason%``\n\nThe appeal was open for ``%days%``d ``%hours%``h ``%minutes%``m ``%seconds%``s!" # Placeholders: %creator%, %channel_name%, %author%, %reason%, %days%, %hours%, %minutes%, %seconds%
+    timestamp: true
+
+  deny: # Embed Builder (Object)
+    title: "Appeal Closure"
+    color: red
+    description: "%creator%**'s appeal has been __denied__!**\n\n> **Ticket Name:** ``%channel_name%``\n> **Reviewed by:** %author%\n> **Reason:** ``%reason%``\n\nThe appeal was open for ``%days%``d ``%hours%``h ``%minutes%``m ``%seconds%``s!" # Placeholders: %creator%, %channel_name%, %author%, %reason%, %days%, %hours%, %minutes%, %seconds%
+    timestamp: true
+
+appeal_finished:
+  color: green
+  description: "``✅`` Thank you for **appealing**. Appeals are being __reviewed__ withitn ``24`` hours."
+
+errors:
+  not_enabled: "%user%, __appeals__ are currently **disabled**" # Placeholder: %user% (String)
+  cant_use_command_outside_of_appeals: "%user%, you **cannot** use this command __outside__ of appeals" # Placeholder: %user% (String)
