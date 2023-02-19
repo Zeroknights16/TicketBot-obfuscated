@@ -11,8 +11,8 @@
     "regenerate_config_on_load_error": true,
     "auto_restart_every": "7d",
 
-    "mongodb_uri": "mongodb+srv://zeroknights:kSJsu7Slba2QJ7Ct@bot.s2fbn.mongodb.net/BOT?retryWrites=true&w=majority",
-    "discord_bot_token": "ODM2NjI3NTMxMjIxNTY1NTAx.G6xng9.73sUkWAO_B5d5BuR631KJRP6r54tLNPj4Hnko4",
+    "mongodb_uri": "",
+    "discord_bot_token": "",
     "discord_bot_id": "836627531221565501",
     "discord_bot_acivities": ["Hello", "World"]
 }
